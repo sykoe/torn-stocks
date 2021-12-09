@@ -1,11 +1,13 @@
+const apiKey = 'Kz89ZOtwowoEeIX1';
 const updateStonx = async () => {
+  if(!apiKey)return;
   var time = document.getElementById("time")
   var currentdate = new Date(); 
   var datetime = "Last Sync: " + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
   time.innerHTML = datetime;
-  var response = await fetch('https://api.torn.com/torn/?selections=stocks&key=35qCGHHOjbVTk196');
+  var response = await fetch('https://api.torn.com/torn/?selections=stocks&key=' + apiKey);
   var stonx = await response.json(); //extract JSON from the http response
   stonx = stonx["stocks"];    
   return stonx;
